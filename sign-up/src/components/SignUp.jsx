@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ButtonSubmit from "./ButtonSubmit";
 
-export default function SignUp({ setLogin }) {
+export default function SignUp() {
   function InputLabel({ title, value, isPassword, onEventChange }) {
     return (
       <div className="flex">
@@ -19,6 +20,7 @@ export default function SignUp({ setLogin }) {
     );
   }
 
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,29 +35,32 @@ export default function SignUp({ setLogin }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLogin(email === "admin" && password === "admin");
+    navigate("/main-view");
   };
 
   return (
     <div className="m-4">
-      <InputLabel
-        title="Email:"
+      <label className="flex-none">Email : </label>
+      <input
+        type={"text"}
+        name={"email"}
         value={email}
-        isPassword={false}
-        onEventChange={(e) => handleValueChange(e, "email")}
+        className="flex-auto border border-gray-400 p-1 m-1"
+        onChange={(e) => setEmail(e.target.value)}
       />
       <br />
-      <InputLabel
-        title="Password:"
+      <label className="flex-none">Password : </label>
+      <input
+        type={"password"}
+        name={"password"}
         value={password}
-        isPassword={true}
-        onEventChange={(e) => handleValueChange(e, "password")}
+        className="flex-auto border border-gray-400 p-1 m-1"
+        onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-      {/* <button type="submit" onSubmit={handleSubmit}>
-        Sign Up
-      </button> */}
-      <Link to={'./main-view'}>Go!!</Link>
+        <ButtonSubmit isEnabled={email && password} onClick={handleSubmit}>
+          로그인
+        </ButtonSubmit>
     </div>
   );
 }
