@@ -8,9 +8,14 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, email, password) => {
     event.preventDefault();
-    navigate("/main-view");
+    console.log(`email: ${email}, password: ${password}`);
+    if (email === 'tester' && password === '1234') {
+      navigate("/main-view");
+    } else {
+      alert('아이디 또는 비밀번호가 틀렸습니다.');
+    }
   };
 
   return (
@@ -33,9 +38,9 @@ export default function SignUp() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <br />
-        <ButtonSubmit isEnabled={email && password} onClick={handleSubmit}>
-          로그인
-        </ButtonSubmit>
+      <ButtonSubmit handleSubmit={handleSubmit} email={email} password={password}>
+        로그인
+      </ButtonSubmit>
     </div>
   );
 }
