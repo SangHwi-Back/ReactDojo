@@ -14,14 +14,14 @@ function App() {
   return (
     <React.StrictMode>
       <>
-        <Header onClick={() => toggleOpen(true)}/>
+        <Header isOpen={isOpen} toggleSideBarOpen={toggleOpen}/>
         <div className="flex ml-3">
           <SideBar isOpen={isOpen} toggleOpen={() => toggleOpen(!isOpen)} />
           <RouterProvider router={router}>
-            <MainComponent className="flex-initial" />
+            <MainComponent className="flex-grow"/>
           </RouterProvider>
         </div>
-          <FloatingButtoin>=</FloatingButtoin>
+        <FloatingButtoin>=</FloatingButtoin>
       </>
     </React.StrictMode>
   );
