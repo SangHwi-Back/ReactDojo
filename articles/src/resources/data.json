@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Introduction to AI",
+      "author": "John Doe",
+      "content": "Artificial Intelligence (AI) is a wide-ranging branch of computer science concerned with building smart machines capable of performing tasks that typically require human intelligence."
+    },
+    {
+      "id": "2",
+      "title": "Understanding Machine Learning",
+      "author": "Jane Doe",
+      "content": "Machine Learning is a type of artificial intelligence (AI) that allows software applications to become more accurate in predicting outcomes without being explicitly programmed to do so."
+    },
+    {
+      "id": "3",
+      "title": "The Future of Quantum Computing",
+      "author": "Alex Smith",
+      "content": "Quantum computing is the area of study focused on developing computer-based technologies centered around the principles of quantum theory."
+    }
+  ]
+}
