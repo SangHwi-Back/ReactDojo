@@ -1,7 +1,42 @@
+import React from "react";
+import FloatingButton from "./FloatingButton";
+import { Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
 export default function Root() {
-    return (
-        <div>
-            <h1>Root</h1>
+  const [isOpen, setIsOpen] = React.useState(false);
+  const headerClass = "flex justify-between p-4 bg-gray-200";
+  const sidebarClass = `w-64 bg-gray-100 h-full transition-all duration-500 ${
+    isOpen ? "block" : "hidden"
+  }`;
+  const contentsClass = `ml-${isOpen ? "64" : "0"} transition-all duration-500`;
+
+  return (
+    <>
+      <header className={headerClass}>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "Close menu" : "Open menu"}
+        </button>
+        <div className="">
+          <Link className="mr-4" to="/articles">
+            Articles
+          </Link>
+          <Link to="./insertArticles">InsertArticles</Link>
         </div>
-    );
+      </header>
+      <div className={"flex h-screen"}>
+        <div className={sidebarClass}>
+          <h2 className="text-xl p-4">Sidebar</h2>
+          <p className="px-4">This is a foldable sidebar</p>
+        </div>
+        <div className={contentsClass}>
+          <Outlet />
+        </div>
+      </div>
+      <FloatingButton />
+    </>
+  );
 }

@@ -9,23 +9,25 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
+        children: [
+            {
+                path: "/articles",
+                element: <Articles />,
+            },
+            {
+                path: "/insertArticles",
+                element: <InsertArticles />,
+            },
+            {
+                path: "/login",
+                element: <Login />,
+            },
+            {
+                path: "/catchAll:",
+                element: <NotFound />,
+            }
+        ]
     },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/articles",
-        element: <Articles />,
-    },
-    {
-        path: "/insertArticles",
-        element: <InsertArticles />,
-    },
-    {
-        path: "/catchAll:",
-        element: <NotFound />,
-    }
 ]);
 
 export default router;
