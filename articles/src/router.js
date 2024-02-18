@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import InsertArticles from "./components/InsertArticles";
 import NotFound from "./components/NotFound";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
         path: "/",
         element: <Root />,
@@ -27,3 +27,5 @@ export const router = createBrowserRouter([
         element: <NotFound />,
     }
 ]);
+
+export default router;
