@@ -6,10 +6,10 @@ import { Outlet } from "react-router-dom";
 export default function Root() {
   const [isOpen, setIsOpen] = React.useState(false);
   const headerClass = "flex justify-between p-4 bg-gray-200";
-  const sidebarClass = `w-64 bg-gray-100 h-full transition-all duration-500 ${
+  const sidebarClass = `bg-gray-100 h-full transition-all duration-500 ${
     isOpen ? "block" : "hidden"
   }`;
-  const contentsClass = `ml-${isOpen ? "64" : "0"} transition-all duration-500`;
+  const contentsClass = `w-full transition-all duration-500`;
 
   return (
     <>
