@@ -1,10 +1,10 @@
-import React from "react";
 import FloatingButton from "./FloatingButton";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 
 export default function Root() {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const headerClass = "flex justify-between p-4 bg-gray-200";
   const sidebarClass = `bg-gray-100 h-full transition-all duration-500 ${
     isOpen ? "block" : "hidden"
@@ -21,9 +21,7 @@ export default function Root() {
           {isOpen ? "Close menu" : "Open menu"}
         </button>
         <div className="">
-          <Link className="mr-4" to="/articles">
-            Articles
-          </Link>
+          <Link className="mr-4" to="/articles">Articles</Link>
           <Link to="./insertArticles">InsertArticles</Link>
         </div>
       </header>
