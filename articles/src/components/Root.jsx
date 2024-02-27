@@ -2,8 +2,11 @@ import FloatingButton from "./FloatingButton";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
+import ArticleContext from "./ArticleContext";
+import data from "../resources/data.json";
 
 export default function Root() {
+  const [articles, setArticles] = useState(data.articles);
   const [isOpen, setIsOpen] = useState(false);
   const headerClass = "flex justify-between p-4 bg-gray-200";
   const sidebarClass = `bg-gray-100 h-full transition-all duration-500 ${
@@ -13,6 +16,7 @@ export default function Root() {
 
   return (
     <>
+      <ArticleContext.Provider value={{articles, setArticles}}>
       <header className={headerClass}>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -35,6 +39,7 @@ export default function Root() {
         </div>
       </div>
       <FloatingButton />
+      </ArticleContext.Provider>
     </>
   );
 }
