@@ -1,6 +1,6 @@
-import './App.css';
+import { Link } from "react-router-dom";
 
-function App() {
+export default function IntroPage() {
   return (
     <>
       <h1>타로 카드 홈페이지에 어서오세요!</h1>
@@ -14,12 +14,21 @@ function App() {
             <li>
               이 사이트에서 사용된 모든 정보는 아래의 도서를 참고하였습니다.
             </li>
-            <li>https://www.yes24.com/Product/Goods/326349</li>
+            <li>
+              <a href="https://www.yes24.com/Product/Goods/326349">
+                https://www.yes24.com/Product/Goods/326349
+              </a>
+            </li>
           </ul>
+        </li>
+        <li>
+          그럼 시작해볼까요?
+          <br />
+          <Link to="/selectTheme">
+            시작해보기!
+          </Link> 
         </li>
       </ul>
     </>
   );
 }
-
-export default App;
