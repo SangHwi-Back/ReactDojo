@@ -1,5 +1,5 @@
 import GridCardItem from "./GridCardItem";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import CardsContext from "./contexts";
 
@@ -8,6 +8,7 @@ export default function SelectCard() {
   const { state, dispatch } = useContext(CardsContext);
   const nextPath =
     sequence < 3 ? `/selectCard/${Number(sequence) + 1}` : "/result";
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -23,9 +24,15 @@ export default function SelectCard() {
           .filter((card) => !card.isSelected)
           .map((card, index) => {
             return (
-              <Link key={index} to={nextPath}>
+              <div
+                key={index}
+                onClick={() => {
+                  dispatch({ type: "setSelectedIndex", selectedIndex: index });
+                  navigate(nextPath);
+                }}
+              >
                 <GridCardItem card={card} index={index} />
-              </Link>
+              </div>
             );
           })}
       </div>

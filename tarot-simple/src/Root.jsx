@@ -5,7 +5,6 @@ import data from "./data";
 import { useReducer } from "react";
 
 export default function Root() {
-  const cards = data.cards;
   function reducer(state, action) {
     switch (action.type) {
       case "setTheme":
@@ -23,7 +22,7 @@ export default function Root() {
   }
 
   const [state, dispatch] = useReducer(reducer, {
-    cards: cards,
+    cards: data.cards,
     theme: null,
     combination: null,
   });
