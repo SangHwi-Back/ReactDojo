@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import IntroPage from "./IntroPage";
-import SelectTheme from "./SelectTheme";
+import SelectConditions from "./SelectConditions";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/selectTheme",
-    element: <SelectTheme />,
+    element: <SelectConditions />,
   }
 ]);
 

@@ -4,6 +4,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
+  variants: {
+    backgroundColor: ({ after }) => after(["disabled"]),
+    cursor: ({ after }) => after(["disabled"]),
+  },
 };
 
