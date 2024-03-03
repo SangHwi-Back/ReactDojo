@@ -10,7 +10,7 @@ export default function RadioListTheme({ arr, setter }) {
             value={item.value}
             onChange={(e) => setter(e.target.value)}
           />
-          <label htmlFor={item.labelStr} class="pl-2">{item.labelStr}</label>
+          <label htmlFor={item.labelStr} className="pl-2">{item.labelStr}</label>
         </div>
       ))}
     </div>

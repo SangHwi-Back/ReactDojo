@@ -6,6 +6,7 @@
       "korName": "광대",
       "img": "https://www.trustedtarot.com/img/cards/the-fool.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Beginnings. Spontaneity. Originality. Innocence.",
         "reversed": "Naivety. Poor judgement. Folly. Lack of direction."
@@ -17,6 +18,7 @@
       "korName": "마법사",
       "img": "https://www.trustedtarot.com/img/cards/the-magician.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Manifesting your goals. Using your talents. Taking appropriate action. Making a plan.",
         "reversed": "Being a trickster. Taking advantage of others. Putting on an insincere act."
@@ -28,6 +30,7 @@
       "korName": "여사제",
       "img": "https://www.trustedtarot.com/img/cards/the-high-priestess.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Intuition. Hidden knowledge. The subconscious. The divine feminine.",
         "reversed": "Secrets. Confusion. Lack of clarity. Ignorance."
@@ -39,6 +42,7 @@
       "korName": "여황제",
       "img": "https://www.trustedtarot.com/img/cards/the-empress.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Fertility. Abundance. Motherhood. Sensuality.",
         "reversed": "Creative block. Dependence on others. Overbearing."
@@ -50,6 +54,7 @@
       "korName": "황제",
       "img": "https://www.trustedtarot.com/img/cards/the-emperor.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Authority. Structure. Control. Fatherhood.",
         "reversed": "Tyranny. Domination. Rigidity. Coldness."
@@ -61,6 +66,7 @@
       "korName": "교황",
       "img": "https://www.trustedtarot.com/img/cards/the-heirophant.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Tradition. Conformity. Morality. Ethics.",
         "reversed": "Rebellion. Non-conformity. Unorthodoxy. Rejection of tradition."
@@ -72,6 +78,7 @@
       "korName": "연인",
       "img": "https://www.trustedtarot.com/img/cards/the-lovers.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Love. Union. Relationships. Values.",
         "reversed": "Self-love. Disharmony. Imbalance. Misalignment of values."
@@ -83,6 +90,7 @@
       "korName": "전차",
       "img": "https://www.trustedtarot.com/img/cards/the-chariot.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Control. Willpower. Victory. Assertion.",
         "reversed": "Lack of control. Lack of direction. Aggression."
@@ -94,6 +102,7 @@
       "korName": "힘",
       "img": "https://www.trustedtarot.com/img/cards/strength.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Strength. Courage. Patience. Control.",
         "reversed": "Weakness. Self-doubt. Lack of self-discipline. Insecurity."
@@ -105,6 +114,7 @@
       "korName": "은둔자",
       "img": "https://www.trustedtarot.com/img/cards/the-hermit.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Soul-searching. Introspection. Being alone. Inner guidance.",
         "reversed": "Isolation. Loneliness. Withdrawal. Disconnection."
@@ -116,6 +126,7 @@
       "korName": "운명의 수레바퀴",
       "img": "https://www.trustedtarot.com/img/cards/wheel-of-fortune.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Good luck. Karma. Life cycles. Destiny.",
         "reversed": "Bad luck. Resistance to change. Breaking cycles. Disconnection from the divine."
@@ -127,6 +138,7 @@
       "korName": "정의",
       "img": "https://www.trustedtarot.com/img/cards/justice.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Justice. Fairness. Truth. Cause and effect.",
         "reversed": "Unfairness. Injustice. Dishonesty. Legal problems."
@@ -138,6 +150,7 @@
       "korName": "매달린 자",
       "img": "https://www.trustedtarot.com/img/cards/the_hanged.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Sacrifice. Release. Martyrdom. Surrender.",
         "reversed": "Stalling. Delays. Reversals. Resistance."
@@ -149,6 +162,7 @@
       "korName": "죽음",
       "img": "https://www.trustedtarot.com/img/cards/death.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Endings. Change. Transformation. Transition.",
         "reversed": "Resistance to change. Personal transformation. Inner purging."
@@ -160,6 +174,7 @@
       "korName": "절제",
       "img": "https://www.trustedtarot.com/img/cards/temperance.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Balance. Moderation. Patience. Purpose.",
         "reversed": "Imbalance. Excess. Lack of long-term vision. Disorganization."
@@ -171,6 +186,7 @@
       "korName": "악마",
       "img": "https://www.trustedtarot.com/img/cards/the-devil.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Addiction. Materialism. Playfulness. Temptation.",
         "reversed": "Freedom. Release. Restoring control. Inner strength."
@@ -182,6 +198,7 @@
       "korName": "탑",
       "img": "https://www.trustedtarot.com/img/cards/the-tower.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Disaster. Upheaval. Sudden change. Revelation.",
         "reversed": "Avoidance of disaster. Fear of change. Fear of suffering."
@@ -193,6 +210,7 @@
       "korName": "별",
       "img": "https://www.trustedtarot.com/img/cards/the-star.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Hope. Inspiration. Generosity. Serenity.",
         "reversed": "Faithlessness. Discouragement. Insecurity. Disappointment."
@@ -204,6 +222,7 @@
       "korName": "달",
       "img": "https://www.trustedtarot.com/img/cards/the-moon.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Illusion. Fear. Anxiety. Subconscious.",
         "reversed": "Release, repressed emotion. Inner confusion. Release of fear."
@@ -215,6 +234,7 @@
       "korName": "태양",
       "img": "https://www.trustedtarot.com/img/cards/the-sun.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Joy. Success. Celebration. Positivity.",
         "reversed": "Negativity. Depression. Sadness. Inner child."
@@ -226,6 +246,7 @@
       "korName": "심판",
       "img": "https://www.trustedtarot.com/img/cards/judgement.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Judgement. Rebirth. Inner calling. Absolution.",
         "reversed": "Self-doubt. Inner critic. Ignoring the call."
@@ -237,6 +258,7 @@
       "korName": "세계",
       "img": "https://www.trustedtarot.com/img/cards/the-world.png",
       "isReversed": false,
+      "isSelected": false,
       "meanings": {
         "forward": "Completion. Integration. Accomplishment. Travel.",
         "reversed": "Seeking personal closure. Short-cuts. Delays."

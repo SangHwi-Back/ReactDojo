@@ -3,7 +3,7 @@ import RadioListTheme from "./RadioListTheme";
 export default function SelectCombination({ setCombination }) {
   return (
     <div>
-      <p class="mb-2">Select Combination</p>
+      <p className="mb-2">Select Combination</p>
       <RadioListTheme
         arr={[
           {
