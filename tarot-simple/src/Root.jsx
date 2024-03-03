@@ -6,18 +6,28 @@ import { useReducer } from "react";
 
 export default function Root() {
   function reducer(state, action) {
+    const cards = state.cards;
     switch (action.type) {
       case "setTheme":
         return { ...state, theme: action.theme };
       case "setCombination":
         return { ...state, combination: action.combination };
       case "setSelectedIndex":
-        const newCards = state.cards.map((card, index) =>
-          index === action.selectedIndex ? { ...card, isSelected: true } : card
-        );
-        return { ...state, cards: newCards };
+        return {
+          ...state,
+          cards: cards.map((card, index) =>
+            index === action.selectedIndex
+              ? { ...card, isSelected: true }
+              : card
+          ),
+        };
+      case "reset":
+        return {
+          ...state,
+          cards: cards.map((card) => ({ ...card, isSelected: false }))
+        };
       default:
-        throw new Error();
+        return state;
     }
   }
 
