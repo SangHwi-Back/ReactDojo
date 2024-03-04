@@ -13,6 +13,9 @@ export default function Root() {
       case "setCombination":
         return { ...state, combination: action.combination };
       case "setSelectedIndex":
+        let selectedIndexes = state.selectedIndexes;
+        selectedIndexes[action.selectedIndex] = action.selectedIndex;
+
         return {
           ...state,
           cards: cards.map((card, index) =>
@@ -20,11 +23,13 @@ export default function Root() {
               ? { ...card, isSelected: true }
               : card
           ),
+          selectedIndexes: selectedIndexes
         };
       case "reset":
         return {
           ...state,
-          cards: cards.map((card) => ({ ...card, isSelected: false }))
+          cards: cards.map((card) => ({ ...card, isSelected: false })),
+          selectedIndexes: [null, null, null]
         };
       default:
         return state;
@@ -35,6 +40,7 @@ export default function Root() {
     cards: data.cards,
     theme: null,
     combination: null,
+    selectedIndexes: [null, null, null]
   });
 
   return (

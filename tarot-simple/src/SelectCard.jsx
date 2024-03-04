@@ -1,13 +1,14 @@
 import GridCardItem from "./GridCardItem";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import CardsContext from "./contexts";
+import CardGrid from "./CardGrid";
 
 export default function SelectCard() {
   const { sequence } = useParams();
   const { state, dispatch } = useContext(CardsContext);
   const nextPath =
-    sequence < 3 ? `/selectCard/${Number(sequence) + 1}` : "/result";
+    sequence < 3 ? `/selectCard/${Number(sequence) + 1}` : "/results";
   const navigate = useNavigate();
 
   return (
@@ -19,7 +20,7 @@ export default function SelectCard() {
       >
         Reset
       </button>
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 list-none">
+      <CardGrid>
         {state.cards
           .filter((card) => !card.isSelected)
           .map((card, index) => {
@@ -35,7 +36,7 @@ export default function SelectCard() {
               </div>
             );
           })}
-      </div>
+      </CardGrid>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import IntroPage from "./IntroPage";
 import SelectConditions from "./SelectConditions";
 import SelectCard from "./SelectCard";
+import Results from "./Results";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,8 @@ const router = createBrowserRouter([
     element: <SelectCard />,
   },
   {
-    path: "/result",
-    element: <div>Result</div>,
+    path: "/results",
+    element: <Results />,
   }
 ]);
 
