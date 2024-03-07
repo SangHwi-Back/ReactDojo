@@ -15,24 +15,24 @@ export default function SelectCard() {
     <div>
       <h1>Select a card</h1>
       <p>Click on a card to see its details</p>
-      <button
-        onClick={() => dispatch({ type: "setSelectedIndex", selectedIndex: 0 })}
-      >
-        Reset
-      </button>
       <CardGrid>
         {state.cards
           .filter((card) => !card.isSelected)
-          .map((card, index) => {
+          .map((card) => {
             return (
               <div
-                key={index}
+                key={card.index}
                 onClick={() => {
-                  dispatch({ type: "setSelectedIndex", selectedIndex: index });
-                  navigate(nextPath);
+                  dispatch({ type: "setSelectedIndex", selectedIndex: card.index });
+                  // TODO: Refactor needed. I meant to use 3 not 2.
+                  if (state.selectedIndexes.filter((value) => value !== null).length === 2) {
+                    navigate('/results');
+                  } else {
+                    navigate(nextPath);
+                  }
                 }}
               >
-                <GridCardItem card={card} index={index} />
+                <GridCardItem card={card} index={card.index} />
               </div>
             );
           })}

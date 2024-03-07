@@ -15,7 +15,7 @@ export default function Root() {
       case "setSelectedIndex":
         let selectedIndexes = state.selectedIndexes;
         selectedIndexes[action.selectedIndex] = action.selectedIndex;
-
+        console.log(selectedIndexes, action.selectedIndex);
         return {
           ...state,
           cards: cards.map((card, index) =>
@@ -37,7 +37,10 @@ export default function Root() {
   }
 
   const [state, dispatch] = useReducer(reducer, {
-    cards: data.cards,
+    cards: data.cards.map((card, index) => {
+      card["index"] = index;
+      return card;
+    }),
     theme: null,
     combination: null,
     selectedIndexes: [null, null, null]

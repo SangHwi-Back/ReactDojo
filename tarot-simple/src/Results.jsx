@@ -7,10 +7,8 @@ export default function Results() {
     const { state } = useContext(CardsContext);
     let selectedCards = [];
 
-    for (let i = 0; i < state.selectedIndexes.length; i++) {
-        if (state.selectedIndexes[i] !== null) {
-            selectedCards.push(state.cards[state.selectedIndexes[i]]);
-        }
+    for (let i = 0; i < state.selectedIndexes.filter((value) => value !== null).length; i++) {
+        selectedCards.push(state.cards[state.selectedIndexes[i]]);
     }
 
     return (
