@@ -3,6 +3,7 @@ import IntroPage from "./IntroPage";
 import SelectConditions from "./SelectConditions";
 import SelectCard from "./SelectCard";
 import Results from "./Results";
+import CardSpread from "./components/CardSpread";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/results",
-    element: <Results />,
-  }
+    element: <CardSpread />,
+  },
 ]);
 
 export default router;

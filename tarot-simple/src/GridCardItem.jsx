@@ -1,7 +1,7 @@
-export default function GridCardItem({ key, card }) {
+export default function GridCardItem({ key, card, isCrossed }) {
   return (
     <li key={key}>
-      <img src={card.img} alt={card.engName} />
+      <img className={isCrossed ? 'rotate-90' : ''} src={card.img} alt={card.engName} />
       <p>{card.engName}</p>
     </li>
   )
