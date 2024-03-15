@@ -330,5 +330,109 @@
         "yesNo": "The World card means satisfaction and success at a journey's end. Fulfillment, rewards, certainty, and positive outcomes are all things directly associated with the presence of this card. The answer more than likely is yes."
       }
     }
+  ],
+  "spreads": [
+    {
+      "name": "select_combination",
+      "value": "0",
+      "labelStr": "성 삼각 전개법 : 간단한 질문에 대한 대답",
+      "cardCount": 3,
+      "cardDescriptions": [
+        "과거",
+        "현재",
+        "미래"
+      ]
+    },
+    {
+      "name": "select_combination",
+      "value": "1",
+      "labelStr": "양자택일 전개법 : 두 가지 선택지에 대한 대답",
+      "cardCount": 5,
+      "cardDescriptions": [
+        "현재의 상황, 속마음",
+        "선택할 수 있는 대상 1의 상황. 사람인 경우는 그 사람의 속마음",
+        "선택할 수 있는 대상 2의 상황. 사람인 경우는 그 사람의 속마음",
+        "1을 선택한 경우의 결과",
+        "2를 선택한 경우의 결과"
+      ]
+    },
+    {
+      "name": "select_combination",
+      "value": "2",
+      "labelStr": "엘리멘트 전개법 : 문제에 대한 힌트가 궁금할 때",
+      "cardCount": 4,
+      "cardDescriptions": [
+        "문제의 행동과 사고에 대한 힌트",
+        "문제의 말과 의사소통에 대한 힌트",
+        "문제의 애정과 감성에 대한 힌트",
+        "문제의 현실적이 사항에 대한 힌트"
+      ]
+    },
+    {
+      "name": "select_combination",
+      "value": "3",
+      "labelStr": "켈틱크로스 전개법 : 문제에 대한 상세한 대답이 필요할 때",
+      "cardCount": 10,
+      "cardDescriptions": [
+        "현재의 상황",
+        "현재 상황의 장해 또는 구원",
+        "질문자의 의지, 이상",
+        "질문자의 심정, 속마음",
+        "문제의 가까운 과거 상황",
+        "문제의 가까운 미래 상황",
+        "질문자의 현재 상황, 입장",
+        "주변 상황과 영향",
+        "질문자의 능력",
+        "문제의 최종 예상"
+      ]
+    },
+    {
+      "name": "select_combination",
+      "value": "4",
+      "labelStr": "별자리 전개법 : 전체적인 운세를 알고 싶은 경우(제일 비쌈)",
+      "cardCount": 13,
+      "cardDescriptions": [
+        "성격과 주장, 행동의 특징",
+        "금전운과 물질운",
+        "근거리 여행, 커뮤니케이션, 형제나 이웃, 학교문제(초/중/고)",
+        "가정, 주거, 어머니",
+        "연애, 자식, 레저, 도박",
+        "질병과 건강 상태, 직장, 부하",
+        "결혼, 협력자, 대인관계",
+        "유산과 상속, 섹스, 죽음",
+        "장거리 여행, 외국, 학문과 종료, 대학",
+        "사회적인 평가, 천직, 직업, 아버지",
+        "친구, 사교, 소망",
+        "재난, 숨은 적, 요양",
+        "총체적인 운으로 핵심 카드"
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "name": "select_theme",
+      "value": "0",
+      "labelStr": "연애 / 결혼"
+    },
+    {
+      "name": "select_theme",
+      "value": "1",
+      "labelStr": "일 / 적성"
+    },
+    {
+      "name": "select_theme",
+      "value": "2",
+      "labelStr": "건강 / 미용"
+    },
+    {
+      "name": "select_theme",
+      "value": "3",
+      "labelStr": "레저 / 취미"
+    },
+    {
+      "name": "select_theme",
+      "value": "4",
+      "labelStr": "기타"
+    }
   ]
 }

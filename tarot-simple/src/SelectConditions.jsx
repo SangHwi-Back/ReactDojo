@@ -16,10 +16,10 @@ export default function SelectConditions() {
   return (
     <>
       <div className="flex gap-6 mb-4">
-        <SelectTheme
+        {/* <SelectTheme
           setTheme={(value) => dispatch({ type: "setTheme", theme: value })}
           className="flex-col"
-        />
+        /> */}
         <SelectCombination
           setCombination={(value) =>
             dispatch({ type: "setCombination", combination: value })

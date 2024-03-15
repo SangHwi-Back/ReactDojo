@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import ResultGenerator from './resultGenerator';
+import data from './data';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('유닛 테스트 ResultGenerator.getSpreadDescription', () => {
+  for (let i = 0; i < data.spreads.length; i++) {
+    const result = ResultGenerator.getSpreadDescription(i);
+    expect(result).toBe(data.spreads[i].description);
+  }
 });
