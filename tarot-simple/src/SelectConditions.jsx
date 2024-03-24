@@ -1,6 +1,6 @@
 import SelectTheme from "./SelectTheme";
 import SelectCombination from "./SelectCombination";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CardsContext from "./contexts";
 
@@ -8,18 +8,17 @@ export default function SelectConditions() {
   const { state, dispatch } = useContext(CardsContext);
   const selectDisabled = state.theme == null || state.combination == null;
 
-  function initialRefresh() {
-    dispatch({ type: 'refresh' });
-  }
-
-  initialRefresh();
+  useEffect(() => {
+    dispatch({ type: "refresh" });
+  });
+  
   return (
     <>
       <div className="flex gap-6 mb-4">
-        {/* <SelectTheme
+        <SelectTheme
           setTheme={(value) => dispatch({ type: "setTheme", theme: value })}
           className="flex-col"
-        /> */}
+        />
         <SelectCombination
           setCombination={(value) =>
             dispatch({ type: "setCombination", combination: value })

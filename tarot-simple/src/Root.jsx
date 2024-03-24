@@ -29,7 +29,9 @@ export default function Root() {
         return {
           ...state,
           cards: cards.map((card) => ({ ...card, isSelected: false })),
-          selectedIndexes: [null, null, null]
+          selectedIndexes: [null, null, null],
+          theme: null,
+          combination: null
         };
       default:
         return state;
