@@ -4,6 +4,9 @@ import GridCardItem from "../../GridCardItem";
 
 export default function SpreadElement() {
   const { state } = useContext(CardsContext);
+  const selectedCards = state.selectedIndexes.map(
+    (index) => state.cards[index]
+  );
 
   if (state.cards.length < 4) {
     return (
@@ -18,21 +21,21 @@ export default function SpreadElement() {
     <div>
       <div className="flex justify-between">
         <div className="w-1/3">
-          <GridCardItem card={state.cards[0]} />
+          <GridCardItem card={selectedCards[0]} />
         </div>
         <div className="w-1/3" />
         <div className="w-1/3">
-          <GridCardItem card={state.cards[1]} />
+          <GridCardItem card={selectedCards[1]} />
         </div>
       </div>
       <div className="h-20" />
       <div className="flex justify-between">
         <div className="w-1/3">
-          <GridCardItem card={state.cards[2]} />
+          <GridCardItem card={selectedCards[2]} />
         </div>
         <div className="w-1/3" />
         <div className="w-1/3">
-          <GridCardItem card={state.cards[3]} />
+          <GridCardItem card={selectedCards[3]} />
         </div>
       </div>
     </div>

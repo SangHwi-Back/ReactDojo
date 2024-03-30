@@ -4,6 +4,9 @@ import GridCardItem from "../../GridCardItem";
 
 export default function SpreadTriangle() {
   const { state } = useContext(CardsContext);
+  const selectedCards = state.selectedIndexes.map(
+    (index) => state.cards[index]
+  );
 
   if (state.cards.length < 3) {
     return (
@@ -20,17 +23,17 @@ export default function SpreadTriangle() {
         <tbody>
           <tr>
             <td>
-              <GridCardItem card={state.cards[0]} />
+              <GridCardItem card={selectedCards[0]} />
             </td>
             <td />
             <td>
-              <GridCardItem card={state.cards[1]} />
+              <GridCardItem card={selectedCards[1]} />
             </td>
           </tr>
           <tr>
             <td />
             <td>
-              <GridCardItem card={state.cards[2]} />
+              <GridCardItem card={selectedCards[2]} />
             </td>
             <td />
           </tr>

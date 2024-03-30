@@ -24,7 +24,7 @@ export default function IntroPage() {
         <li>
           그럼 시작해볼까요?
           <br />
-          <Link to="/selectTheme">
+          <Link to="/selectConditions">
             시작해보기!
           </Link> 
         </li>

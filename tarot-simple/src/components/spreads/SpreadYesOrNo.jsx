@@ -4,6 +4,9 @@ import GridCardItem from "../../GridCardItem";
 
 export default function SpreadYesOrNo() {
   const { state } = useContext(CardsContext);
+  const selectedCards = state.selectedIndexes.map(
+    (index) => state.cards[index]
+  );
 
   if (state.cards.length < 5) {
     return (
@@ -20,23 +23,23 @@ export default function SpreadYesOrNo() {
         <tbody>
           <tr>
             <td>
-              <GridCardItem card={state.cards[0]} />
+              <GridCardItem card={selectedCards[0]} />
             </td>
             <td />
             <td />
             <td />
             <td>
-              <GridCardItem card={state.cards[1]} />
+              <GridCardItem card={selectedCards[1]} />
             </td>
           </tr>
           <tr>
             <td />
             <td>
-              <GridCardItem card={state.cards[2]} />
+              <GridCardItem card={selectedCards[2]} />
             </td>
             <td />
             <td>
-              <GridCardItem card={state.cards[3]} />
+              <GridCardItem card={selectedCards[3]} />
             </td>
             <td />
           </tr>
@@ -44,7 +47,7 @@ export default function SpreadYesOrNo() {
             <td />
             <td />
             <td>
-              <GridCardItem card={state.cards[4]} />
+              <GridCardItem card={selectedCards[4]} />
             </td>
             <td />
             <td />

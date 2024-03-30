@@ -4,8 +4,11 @@ import SimpleCard from "../../SimpleCard";
 
 export default function SpreadCelticCross() {
   const { state } = useContext(CardsContext);
-
-  if (state.cards.length < 10) {
+  const selectedCards = state.selectedIndexes.map(
+    (index) => state.cards[index]
+  );
+  console.log(selectedCards.count);
+  if (selectedCards.length < 10) {
     return (
       <div>
         <h2>Celtic Cross</h2>
@@ -15,23 +18,23 @@ export default function SpreadCelticCross() {
   }
 
   return (
-    <div className="flex justify-center items-center">
-      <SimpleCard card={state.cards[0]} />
+    <div className="flex flex-row items-center">
+      <SimpleCard card={selectedCards[0]} />
       <div className="flex flex-col items-center">
-        <SimpleCard card={state.cards[1]} />
+        <SimpleCard card={selectedCards[1]} />
         <SimpleCard
-          className="w-full"
-          card={state.cards[2]}
-          childrenThatCrossed={<SimpleCard card={state.cards[3]} />}
+          className="relative"
+          card={selectedCards[2]}
+          childrenThatCrossed={<SimpleCard card={selectedCards[3]} />}
         />
-        <SimpleCard card={state.cards[4]} />
+        <SimpleCard card={selectedCards[4]} />
       </div>
-      <SimpleCard card={state.cards[5]} />
-      <div className="flex flex-col items-center">
-        <SimpleCard card={state.cards[6]} />
-        <SimpleCard card={state.cards[7]} />
-        <SimpleCard card={state.cards[8]} />
-        <SimpleCard card={state.cards[9]} />
+      <SimpleCard card={selectedCards[5]} />
+      <div className="flex flex-col">
+        <SimpleCard card={selectedCards[6]} />
+        <SimpleCard card={selectedCards[7]} />
+        <SimpleCard card={selectedCards[8]} />
+        <SimpleCard card={selectedCards[9]} />
       </div>
     </div>
   );

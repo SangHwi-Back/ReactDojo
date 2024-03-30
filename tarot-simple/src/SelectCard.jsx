@@ -5,15 +5,14 @@ import CardsContext from "./contexts";
 import CardGrid from "./CardGrid";
 
 export default function SelectCard() {
-  const { sequence } = useParams();
+  const seq = Number(useParams().sequence);
   const { state, dispatch } = useContext(CardsContext);
-  const nextPath =
-    sequence < 3 ? `/selectCard/${Number(sequence) + 1}` : "/results";
+  const nextPath = `/selectCard/${seq + 1}`;
   const navigate = useNavigate();
 
   return (
     <div>
-      <h1>Select a card</h1>
+      <h1>Select {seq+1} of {state.selectedIndexes.length} card</h1>
       <p>Click on a card to see its details</p>
       <CardGrid>
         {state.cards
@@ -23,9 +22,13 @@ export default function SelectCard() {
               <div
                 key={card.index}
                 onClick={() => {
-                  dispatch({ type: "setSelectedIndex", selectedIndex: card.index });
-                  // TODO: Refactor needed. I meant to use 3 not 2.
-                  if (state.selectedIndexes.filter((value) => value !== null).length === 2) {
+                  dispatch({
+                    type: "setSelectedIndex",
+                    cardIndex: card.index,
+                    selectedAt: seq,
+                  });
+
+                  if (state.selectedIndexes.includes(null) === false) {
                     navigate('/results');
                   } else {
                     navigate(nextPath);

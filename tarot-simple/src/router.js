@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <IntroPage />,
   },
   {
-    path: "/selectTheme",
+    path: "/selectConditions",
     element: <SelectConditions />,
   },
   {

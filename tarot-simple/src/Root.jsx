@@ -9,29 +9,44 @@ export default function Root() {
     const cards = state.cards;
     switch (action.type) {
       case "setTheme":
+        state.theme = action.theme;
         return { ...state, theme: action.theme };
       case "setCombination":
-        return { ...state, combination: action.combination };
+        let newIndexes = [];
+        if (
+          action.combination >= 0 &&
+          action.combination < data.spreads.length
+        ) {
+          newIndexes = new Array(
+            data.spreads[action.combination].cardCount
+          ).fill(null);
+        }
+        return { ...state, selectedIndexes: newIndexes, combination: action.combination };
       case "setSelectedIndex":
         let selectedIndexes = state.selectedIndexes;
-        selectedIndexes[action.selectedIndex] = action.selectedIndex;
-        console.log(selectedIndexes, action.selectedIndex);
+        let sequence = action.selectedAt;
+        let cardIndex = action.cardIndex;
+        if (
+          sequence >= 0 && 
+          sequence < selectedIndexes.length
+        ) {
+          selectedIndexes[sequence] = cardIndex;
+        }
+        console.log(selectedIndexes, action);
         return {
           ...state,
           cards: cards.map((card, index) =>
-            index === action.selectedIndex
-              ? { ...card, isSelected: true }
-              : card
+            index === cardIndex ? { ...card, isSelected: true } : card
           ),
-          selectedIndexes: selectedIndexes
+          selectedIndexes: selectedIndexes,
         };
       case "reset":
         return {
           ...state,
           cards: cards.map((card) => ({ ...card, isSelected: false })),
-          selectedIndexes: [null, null, null],
+          selectedIndexes: [],
           theme: null,
-          combination: null
+          combination: null,
         };
       default:
         return state;
@@ -45,7 +60,7 @@ export default function Root() {
     }),
     theme: null,
     combination: null,
-    selectedIndexes: [null, null, null]
+    selectedIndexes: [null, null, null],
   });
 
   return (
