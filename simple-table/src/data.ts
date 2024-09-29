@@ -21,7 +21,7 @@ function isTableData(obj: any): obj is TableData {
         typeof obj.viewCount === 'string';
 }
 
-let data = JSON.parse(`{
+export let data = JSON.parse(`{
     "list": [
         {
             "key": "550e8400-e29b-41d4-a716-446655440000",
@@ -270,9 +270,16 @@ let data = JSON.parse(`{
 }`) as TableDataList;
 
 const isNotValid = isTableData(data) && data.list.length > 0;
+export const defaultData: TableData = {
+    key: 'noData',
+    title: 'noData',
+    author: 'noData',
+    date: 'noData',
+    contents: 'noData',
+    tags: [],
+    viewCount: 'noData'
+};
 
 if (isNotValid) {
-    data.list = [{key: 'noData', title: 'noData', author: 'noData', date: 'noData', contents: 'noData', tags: [], viewCount: 'noData'}];
+    data.list = [defaultData];
 }
-
-export default data;
