@@ -15,13 +15,25 @@ import CreateIcon from '@mui/icons-material/Create';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import data, {TableData} from "./data";
+enum FilterType { number, viewCount }
+type TableDataRow = TableData & { number: number; }
 
-enum FilterType {
-  number, viewCount
-}
+export default function TableList() {
+  const [filterType, setFilterType] = useState(FilterType.number);
 
-type TableDataRow = TableData & {
-  number: number;
+  return (
+    <Container maxWidth={'sm'}>
+      <TableActionBar filterType={filterType} setFilterType={setFilterType}/>
+      <Box>
+        <TableContainer>
+          <Table>
+            <ContainerHead/>
+            <ContainerContents filterType={filterType}/>
+          </Table>
+        </TableContainer>
+      </Box>
+    </Container>
+  );
 }
 
 function getListData(type: FilterType = FilterType.number) {
@@ -41,57 +53,54 @@ function getListData(type: FilterType = FilterType.number) {
   return result;
 }
 
-export default function TableList() {
-  const [filterType, setFilterType] = useState(FilterType.number);
-  let isNumber = filterType === FilterType.number;
+function TableActionBar({filterType, setFilterType}: {
+  filterType: FilterType,
+  setFilterType: React.Dispatch<React.SetStateAction<FilterType>>
+}) {
+  const isNumber = filterType === FilterType.number;
+  const nextFilterTYpe = isNumber ? FilterType.viewCount : FilterType.number;
+
+  function getFilterButton() {
+    return <IconButton onClick={() => setFilterType(nextFilterTYpe)}>
+      {getFilterIcon(isNumber)}
+    </IconButton>;
+  }
 
   function getFilterIcon(isNumber: boolean): ReactNode {
     return isNumber ? <FormatListNumberedIcon/> : <FilterListIcon/>
   }
 
-  function getFilterButton() {
-    return <IconButton onClick={() => {
-      setFilterType((isNumber ? FilterType.viewCount : FilterType.number));
-    }}>
-      {getFilterIcon(isNumber)}
-    </IconButton>;
-  }
+  return <Box>
+    <Stack direction="row" justifyContent={'space-between'}>
+      {getFilterButton()}
+      <IconButton onClick={() => {
+      }} color={'primary'}>
+        <CreateIcon/>
+      </IconButton>
+    </Stack>
+  </Box>
+}
 
-  return (
-    <Container maxWidth={'sm'}>
-      <Box>
-        <Stack direction="row" justifyContent={'space-between'}>
-          {getFilterButton()}
-          <IconButton onClick={() => {
-          }} color={'primary'}>
-            <CreateIcon/>
-          </IconButton>
-        </Stack>
-      </Box>
-      <Box>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              {['', '제목', '글쓴이', '날짜', '조회수'].map((name) => <TableCell>{name}</TableCell>)}
-            </TableHead>
-            <TableBody>
-              {getListData(filterType).map((item) => (
-                <TableRow key={item.key}>
-                  <TableCell component={'th'}
-                             scope={'row'}
-                             align={'right'}>
-                    {item.number}
-                  </TableCell>
-                  <TableCell align={'left'}>{item.title}</TableCell>
-                  <TableCell align={'left'}>{item.author}</TableCell>
-                  <TableCell align={'right'}>{item.date}</TableCell>
-                  <TableCell align={'right'}>{item.viewCount}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-    </Container>
-  );
+function ContainerHead() {
+  return <TableHead>
+    {['', '제목', '글쓴이', '날짜', '조회수'].map((name) => <TableCell>{name}</TableCell>)}
+  </TableHead>
+}
+
+function ContainerContents({filterType}: {filterType: FilterType}) {
+  return <TableBody>
+    {getListData(filterType).map((item) => (
+      <TableRow key={item.key}>
+        <TableCell component={'th'}
+                   scope={'row'}
+                   align={'right'}>
+          {item.number}
+        </TableCell>
+        <TableCell align={'left'}>{item.title}</TableCell>
+        <TableCell align={'left'}>{item.author}</TableCell>
+        <TableCell align={'right'}>{item.date}</TableCell>
+        <TableCell align={'right'}>{item.viewCount}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>;
 }
