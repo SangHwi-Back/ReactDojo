@@ -26,5 +26,5 @@ export default function TableDetail() {
   const dataKey = parseQueryString(useLocation().search).dataKey;
   const data = getData(dataKey);
   
-  return <TableDetailForm editable={false} data={data}/>;
+  return <TableDetailForm editable={false} dataProp={data}/>;
 }
