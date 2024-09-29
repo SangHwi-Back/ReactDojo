@@ -59,6 +59,7 @@ function TableActionBar({filterType, setFilterType}: {
 }) {
   const isNumber = filterType === FilterType.number;
   const nextFilterTYpe = isNumber ? FilterType.viewCount : FilterType.number;
+  const navigate = useNavigate();
 
   function getFilterButton() {
     return <IconButton onClick={() => setFilterType(nextFilterTYpe)}>
@@ -73,8 +74,7 @@ function TableActionBar({filterType, setFilterType}: {
   return <Box>
     <Stack direction="row" justifyContent={'space-between'}>
       {getFilterButton()}
-      <IconButton onClick={() => {
-      }} color={'primary'}>
+      <IconButton onClick={() => { navigate('/create') }} color={'primary'}>
         <CreateIcon/>
       </IconButton>
     </Stack>
@@ -95,16 +95,13 @@ function ContainerContents({filterType}: {filterType: FilterType}) {
   
   return <TableBody>
     {getListData(filterType).map((item) => (
-      <TableRow key={item.key} hover>
+      <TableRow key={item.key} onClick={() => navigateTo(item.key)} hover>
         <TableCell component={'th'}
                    scope={'row'}
                    align={'right'}>
           {item.number}
         </TableCell>
-        <TableCell align={'left'}
-                   onClick={() => navigateTo(item.key)}
-                
-        >{item.title}</TableCell>
+        <TableCell align={'left'}>{item.title}</TableCell>
         <TableCell align={'left'}>{item.author}</TableCell>
         <TableCell align={'right'}>{item.date}</TableCell>
         <TableCell align={'right'}>{item.viewCount}</TableCell>

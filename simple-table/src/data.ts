@@ -280,6 +280,16 @@ export const defaultData: TableData = {
     viewCount: 'noData'
 };
 
+export const emptyData: TableData = {
+    key: '',
+    title: '',
+    author: '',
+    date: '',
+    contents: '',
+    tags: [],
+    viewCount: ''
+};
+
 if (isNotValid) {
     data.list = [defaultData];
 }
