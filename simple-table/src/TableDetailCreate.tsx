@@ -1,6 +1,6 @@
-import TableDetailForm from "./TableDetailForm";
+import TableDetailForm, {FormAs} from "./TableDetailForm";
 import { emptyData } from './data';
 
 export default function TableDetailCreate() {
-  return <TableDetailForm editable={true} dataProp={emptyData} />;
+  return <TableDetailForm type={FormAs.create} dataProp={emptyData} />;
 };

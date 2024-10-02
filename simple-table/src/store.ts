@@ -1,5 +1,6 @@
 import {configureStore, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {data, TableData, TableDataList} from "./data";
+import {data, defaultData, TableData, TableDataList} from "./data";
+import {useSelector} from "react-redux";
 
 interface TableSlice {
     data: TableDataList;
@@ -27,6 +28,19 @@ const tableSlice = createSlice({
         },
     },
 });
+
+// 재사용 가능한 선택자 함수 정의
+export const selectDataList = (state: RootState) => state.data.list;
+
+// 커스텀 훅 생성
+export const useDataList = () => {
+    return useSelector(selectDataList);
+};
+
+// getData 함수 정의
+export const getTableArticleData = ({ key, list }: { key: string, list: ReturnType<typeof selectDataList> }) => {
+    return list.find((item: TableData) => item.key === key) || defaultData;
+};
 
 export const store = configureStore({
     reducer: tableSlice.reducer,

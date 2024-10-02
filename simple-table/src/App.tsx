@@ -4,6 +4,7 @@ import TableDetail from "./TableDetail";
 import TableCreateDetail from "./TableDetailCreate";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import TableDetailEdit from "./TableDetailEdit";
 
 export default function App() {
     return (
@@ -12,6 +13,7 @@ export default function App() {
                 <Route path="/" element={<TableList/>}/>
                 <Route path="/detail" element={<TableDetail/>}/>
                 <Route path="/create" element={<TableCreateDetail/>}/>
+                <Route path="/edit" element={<TableDetailEdit/>}/>
             </Routes>
         </Provider>
     )

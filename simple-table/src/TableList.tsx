@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import AddIcon from '@mui/icons-material/Add';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import {TableData} from "./data";
 import {useNavigate} from "react-router-dom";
@@ -81,7 +82,7 @@ function TableActionBar({filterType, setFilterType}: {
     <Stack direction="row" justifyContent={'space-between'}>
       {getFilterButton()}
       <IconButton onClick={() => { navigate('/create') }} color={'primary'}>
-        <CreateIcon/>
+        <AddIcon/>
       </IconButton>
     </Stack>
   </Box>
@@ -99,22 +100,30 @@ function ContainerContents({filterType}: {filterType: FilterType}) {
   let list: TableData[] = useSelector((state: RootState) => state.data.list);
   const rows: TableDataRow[] = sortListData(numberingListData(list), filterType);
 
-  function navigateTo(key: string) {
+  const goEdit = (key: string) => {
+    navigate(`/edit?dataKey=${key}`);
+  }
+  const goDetail = (key: string) => {
     navigate(`/detail?dataKey=${key}`);
   }
   
   return <TableBody>
     {rows.map((item) => (
-      <TableRow key={item.key} onClick={() => navigateTo(item.key)} hover>
-        <TableCell component={'th'}
-                   scope={'row'}
-                   align={'right'}>
+      <TableRow key={item.key} onClick={() => goDetail(item.key)} hover>
+        <TableCell component={'th'} scope={'row'} align={'right'}>
           {item.number}
         </TableCell>
         <TableCell align={'left'}>{item.title}</TableCell>
         <TableCell align={'left'}>{item.author}</TableCell>
         <TableCell align={'right'}>{item.date}</TableCell>
         <TableCell align={'right'}>{item.viewCount}</TableCell>
+        <TableCell align={'center'}>
+          <IconButton onClick={(event) => {
+            event.stopPropagation();
+            event.preventDefault();
+            goEdit(item.key)
+          }} color={'primary'}><CreateIcon/></IconButton>
+        </TableCell>
       </TableRow>
     ))}
   </TableBody>;
