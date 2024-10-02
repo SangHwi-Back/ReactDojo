@@ -2,7 +2,8 @@ import React, {ReactNode, useState} from 'react';
 import './App.css';
 import {
   Box,
-  Container, IconButton,
+  Container,
+  IconButton,
   Stack,
   Table,
   TableBody,
@@ -14,8 +15,11 @@ import {
 import CreateIcon from '@mui/icons-material/Create';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import {data, TableData} from "./data";
+import {TableData} from "./data";
 import {useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {RootState} from "./store";
+
 enum FilterType { number, viewCount }
 type TableDataRow = TableData & { number: number; }
 
@@ -37,11 +41,13 @@ export default function TableList() {
   );
 }
 
-function getListData(type: FilterType = FilterType.number) {
-  let result = data.list.map((item, index): TableDataRow => (
-    {...item, number: index + 1}
+function numberingListData(list: TableData[]): TableDataRow[] {
+  return list.map((item, index): TableDataRow => (
+      {...item, number: index + 1}
   ));
+}
 
+function sortListData(result: TableDataRow[], type: FilterType): TableDataRow[] {
   result.sort((lh, rh) => {
     if (type === FilterType.number) {
       return lh.number - rh.number;
@@ -89,12 +95,16 @@ function ContainerHead() {
 
 function ContainerContents({filterType}: {filterType: FilterType}) {
   const navigate = useNavigate();
+
+  let list: TableData[] = useSelector((state: RootState) => state.data.list);
+  const rows: TableDataRow[] = sortListData(numberingListData(list), filterType);
+
   function navigateTo(key: string) {
     navigate(`/detail?dataKey=${key}`);
   }
   
   return <TableBody>
-    {getListData(filterType).map((item) => (
+    {rows.map((item) => (
       <TableRow key={item.key} onClick={() => navigateTo(item.key)} hover>
         <TableCell component={'th'}
                    scope={'row'}
