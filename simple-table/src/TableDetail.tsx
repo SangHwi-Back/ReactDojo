@@ -1,11 +1,16 @@
-import {data, TableData, defaultData} from "./data";
+import {TableData, defaultData} from "./data";
 import {useLocation} from "react-router-dom";
 import TableDetailForm from "./TableDetailForm";
+import {useSelector} from "react-redux";
+import {RootState} from "./store";
 
-function getData(dataKey: string): TableData {
-  return data.list.find((item: TableData) => {
-    return item.key === dataKey
-  }) || defaultData;
+interface Parameter {
+  key: string
+  list: TableData[]
+}
+
+function getData({ key, list }: Parameter): TableData {
+  return list.find((item: TableData) => item.key === key) || defaultData;
 }
 
 function parseQueryString(queryString: string): Record<string, string> {
@@ -24,7 +29,10 @@ function parseQueryString(queryString: string): Record<string, string> {
 
 export default function TableDetail() {
   const dataKey = parseQueryString(useLocation().search).dataKey;
-  const data = getData(dataKey);
+  const data = getData({
+    key: dataKey,
+    list: useSelector((state: RootState) => state.data.list)
+  });
   
   return <TableDetailForm editable={false} dataProp={data}/>;
 }
