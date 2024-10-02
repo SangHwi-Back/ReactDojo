@@ -15,9 +15,12 @@ import {data, TableData} from "./data";
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import { v4 as uuid } from 'uuid';
+import {useDispatch} from "react-redux";
+import {AppDispatch, deleteArticle} from "./store";
 
 export default function TableDetailForm({editable, dataProp}: {editable: boolean, dataProp: TableData}) {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const [_data, setData] = useState(dataProp);
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -33,6 +36,10 @@ export default function TableDetailForm({editable, dataProp}: {editable: boolean
     _data.date = (new Date()).toDateString();
     _data.key = uuid();
     data.list.splice(0, 0, _data);
+    navigate('/');
+  };
+
+  const goToList = () => {
     navigate('/');
   };
   
@@ -81,15 +88,18 @@ export default function TableDetailForm({editable, dataProp}: {editable: boolean
           : <Box>{_data.contents}</Box>
         }
       </Grid>
-      
-      <Grid size={12}>
-        { editable
-          ? <Stack direction={'row'} justifyContent={'space-between'}>
-            <Button type={'submit'} variant={'contained'}>작성하기</Button>
-            <Button onClick={() => { navigate('/'); }}>목록으로</Button>
-            </Stack>
-          : <Button onClick={() => { navigate('/'); }}>목록으로</Button>
-        }
+
+      <Grid size={8}>
+        <Stack direction={'row'} justifyContent={'space-between'}>
+          {editable
+              ? <Button type={'submit'} variant={'contained'}>작성하기</Button>
+              : <Button onClick={() => {
+                dispatch(deleteArticle(_data.key));
+                goToList();
+              }}>삭제하기</Button>
+          }
+          <Button onClick={goToList}>목록으로</Button>
+        </Stack>
       </Grid>
     </Grid>
     </form>
