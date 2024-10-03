@@ -4,6 +4,7 @@ import {Box, Button, Container, Divider, Stack, TextField} from "@mui/material";
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import {savePasswordHistory, useValidatePassword} from "./store";
 import {useDispatch} from "react-redux";
+import {SignIn} from "./SignInAndUp";
 
 function App() {
   const [password, setPassword] = useState('');
@@ -22,6 +23,8 @@ function App() {
           <AssignmentIndIcon fontSize="medium"/>
           <Box/>
         </Stack>
+
+        <SignIn/>
         
         <Divider/>
         
