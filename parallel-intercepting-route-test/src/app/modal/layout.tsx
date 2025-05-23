@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 
-export default function Layout({children}: { children: ReactNode }) {
+export default async function ModalLayout({children}: { children: ReactNode }) {
   return <div style={{
     height: '100vh',
     width: '100vw',
@@ -10,7 +10,8 @@ export default function Layout({children}: { children: ReactNode }) {
     alignItems: 'center',
     justifyContent: 'center'
   }}>
-    <h3>올ㅋ</h3>
-    {children}
+    <div className={`fixed inset-0 flex flex-col items-end justify-end`}>
+      {children}
+    </div>
   </div>
 }
